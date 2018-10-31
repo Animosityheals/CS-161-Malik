@@ -1,0 +1,24 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	double test1;
+	double test2;
+	double test3;
+	double test4;
+	double test5;
+	double testAvg;
+	double avgScore;
+
+	cout << "Enter test score: " << endl;
+	cin >> test1 >> test2 >> test3 >> test4 >> test5;
+
+	testAvg = test1 + test2 + test3 + test4 + test5;
+	avgScore = testAvg / 5;
+
+	cout << "Test average: " << avgScore << endl;
+	
+	return 0;
+}
