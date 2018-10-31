@@ -1,0 +1,22 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	double capactiyGallons;
+	double milesPerGallon;
+	double driveableMiles;
+
+	cout << "Capacity of fuel tank (in gallons): " << endl;
+	cin >> capactiyGallons;
+	cout << "Miles per gallon: " << endl;
+	cin >> milesPerGallon;
+	
+	driveableMiles = capactiyGallons * milesPerGallon;
+
+	cout << "The car can be driven for " << driveableMiles << " miles" << endl;
+
+
+	return 0;
+}
