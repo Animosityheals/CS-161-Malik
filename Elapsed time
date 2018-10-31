@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int seconds;
+	int minute;
+	int hour;
+	int eventTime;
+
+	const int secondsPerMinute = 60;
+	const int secondsPerHour = 60 * secondsPerMinute;
+	
+	cout << "Enter time in seconds of event: " << endl;
+	cin >> eventTime;
+
+	hour = eventTime / secondsPerHour;
+	eventTime = eventTime % secondsPerHour;
+	minute = eventTime / secondsPerMinute;
+	seconds = eventTime % secondsPerMinute;
+
+	cout << hour << ":" << minute << ":" << seconds << endl;
+
+	return 0;
+}
