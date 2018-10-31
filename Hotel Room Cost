@@ -1,0 +1,123 @@
+#include <iostream>
+
+using namespace std;
+
+const double discoutDay = 0.05;
+const double roomDiscount10 = 0.10;
+const double roomDiscount20 = 0.20;
+const double roomDiscount30 = 0.30;
+
+int main()
+{
+	double room;
+	int roomsBooked;
+	int daysBooked;
+	double salesTax;
+	double salesTaxPercent;
+	double totalDiscount;
+	double totalCost;
+	double discountAmount;
+	double finalAmount;
+	double finalTotal;
+
+	//Inputs
+
+	cout << "Cost of one room: " << endl;
+	cin >> room;
+	cout << "How many rooms would you like to book?: " << endl;
+	cin >> roomsBooked;
+	cout << "How many days would you like to book?: " << endl;
+	cin >> daysBooked;
+	cout << "Sales tax: " << endl;
+	cin >> salesTax;
+	salesTaxPercent = salesTax / 100;
+	
+	//Outputs
+	if (roomsBooked < 10)
+	{
+		if (daysBooked < 3)
+		{
+			totalDiscount = 0;
+			totalCost = room * roomsBooked * daysBooked;
+			discountAmount = totalCost * totalDiscount;
+			finalTotal = totalCost + discountAmount;
+			finalAmount = (finalTotal) + (finalTotal * salesTaxPercent);
+		}
+		else if (daysBooked > 3)
+		{
+			totalDiscount = discoutDay;
+			totalCost = room * roomsBooked * daysBooked;
+			discountAmount = totalCost * totalDiscount;
+			finalTotal = totalCost + discountAmount;
+			finalAmount = (finalTotal)+(finalTotal * salesTaxPercent);
+		}
+	}
+	if (roomsBooked >= 10 && roomsBooked < 20)
+	{
+		if (daysBooked < 3)
+		{
+			totalDiscount = roomDiscount10;
+			totalCost = room * roomsBooked * daysBooked;
+			discountAmount = totalCost * totalDiscount;
+			finalTotal = totalCost + discountAmount;
+			finalAmount = (finalTotal)+(finalTotal * salesTaxPercent);
+
+		}
+		else if (daysBooked > 3)
+		{
+			totalDiscount = roomDiscount10 + discoutDay;
+			totalCost = room * roomsBooked * daysBooked;
+			discountAmount = totalCost * totalDiscount;
+			finalTotal = totalCost + discountAmount;
+			finalAmount = (finalTotal)+(finalTotal * salesTaxPercent);
+		}
+	}
+	if (roomsBooked >= 20 && roomsBooked < 30)
+	{
+		if (daysBooked < 3)
+		{
+			totalDiscount = roomDiscount20;
+			totalCost = room * roomsBooked * daysBooked;
+			discountAmount = totalCost * totalDiscount;
+			finalTotal = totalCost + discountAmount;
+			finalAmount = (finalTotal)+(finalTotal * salesTaxPercent);
+		}
+		else if (daysBooked > 3)
+		{
+			totalDiscount = roomDiscount20 + discoutDay;
+			totalCost = room * roomsBooked * daysBooked;
+			discountAmount = totalCost * totalDiscount;
+			finalTotal = totalCost + discountAmount;
+			finalAmount = (finalTotal)+(finalTotal * salesTaxPercent);
+		}
+	}
+	if (roomsBooked > 30)
+	{
+		if (daysBooked < 3)
+		{
+			totalDiscount = roomDiscount30;
+			totalCost = room * roomsBooked * daysBooked;
+			discountAmount = totalCost * totalDiscount;
+			finalTotal = totalCost + discountAmount;
+			finalAmount = (finalTotal)+(finalTotal * salesTaxPercent);
+		}
+		else if (daysBooked > 3)
+		{
+			totalDiscount = roomDiscount30 + discoutDay;
+			totalCost = room * roomsBooked * daysBooked;
+			discountAmount = totalCost * totalDiscount;
+			finalTotal = totalCost + discountAmount;
+			finalAmount = (finalTotal)+(finalTotal * salesTaxPercent);
+		}
+	}
+
+	cout << "Cost of room: " << room << endl;
+	cout << "Discount Amount: " << discountAmount << endl;
+	cout << "Number of rooms booked: " << roomsBooked << endl;
+	cout << "Number of days booked: " << daysBooked << endl;
+	cout << "Total cost of room: " << totalCost << endl;
+	cout << "Sales Tax: " << salesTax << endl;
+	cout << "Final amount: " << finalAmount << endl;
+
+	return 0;
+}
