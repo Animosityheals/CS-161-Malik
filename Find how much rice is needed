@@ -1,0 +1,18 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	const int metricTon = 2205;
+	double rice;
+	double bags;
+
+	cout << "How much rice (in pounds) can the bag hold?: " << endl;
+	cin >> rice; 
+
+	bags = metricTon / rice;
+	cout << "Number of bags needed: " << static_cast<int>(bags) << endl;
+	
+	return 0;
+}
