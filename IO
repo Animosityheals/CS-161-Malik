@@ -1,0 +1,71 @@
+/******************************************************************
+This assignment is inputting and outputting data to .txt files 
+*******************************************************************/
+
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <string>
+
+using namespace std;
+
+int time(int a, int b, int t) //Algothirm to find total amount of time 
+{
+	int current = a;
+	int total = 0;
+	int i;
+	for (i = 0; total < t; i++)
+	{
+		total = total + current;
+		current = current + b;
+	}
+	if (total != t)
+		i--;
+	return i;
+}
+
+int main()
+{
+	//Declarations of variables 
+	ifstream inputFile;
+	ofstream outputFile;
+	string inputFileName;
+	int a, b, t, numOfDishes;
+		
+	cout << "Enter file name: "; //Output to user
+	getline(cin, inputFileName); //User input 
+
+	inputFile.open(inputFileName); //Opens txt file  
+	
+	if (!inputFile.is_open()) //If file does not exist 
+	{
+		cout << "**File does not exist.**" << endl;
+		exit(1);
+	}
+	
+	while (inputFile.peek() != EOF) //Echoing data back 
+	{
+		inputFile >> a >> b >> t;
+		cout << left << setw(8) << a << setw(8) << b << setw(8) << t << endl;
+	}
+	
+	cout << endl << "End of file reached." << endl;
+	
+	inputFile.clear(); //Clears end file
+	inputFile.seekg(0); //Rewinds input string
+	
+	while (inputFile.peek() != EOF) //Loop to compute and output data to txt file 
+	{
+		outputFile.open("output.txt"); //Opens output txt file
+		while (inputFile >> a >> b >> t) //Computes number of dishes
+		{
+			numOfDishes = time(a, b, t);
+			outputFile << left << "a = " << setw(8) << a << "b = " << setw(8) << b << "t = " << setw(8) << t << "Number of dishes = " << setw(8) << numOfDishes << endl;
+		}
+	}
+
+	inputFile.close(); //Closes input file
+	outputFile.close(); //Close output file 
+	
+	return 0;
+}
